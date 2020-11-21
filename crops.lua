@@ -13,7 +13,7 @@ overproduced.register_plant("overproduced:red_onion", {
 })
 
 --Yellow Onion
-farming.register_plant("overproduced:yellow_onion", {
+overproduced.register_plant("overproduced:yellow_onion", {
 	description = ("Yellow Onion Seed"),
 	harvest_description = ("Yellow Onion"),
 	paramtype2 = "meshoptions",
@@ -27,7 +27,7 @@ farming.register_plant("overproduced:yellow_onion", {
 })
 
 --White Onion
-farming.register_plant("overproduced:white_onion", {
+overproduced.register_plant("overproduced:white_onion", {
 	description = ("White Onion Seed"),
 	harvest_description = ("White Onion"),
 	paramtype2 = "meshoptions",
@@ -42,7 +42,7 @@ farming.register_plant("overproduced:white_onion", {
 
 --Peanuts
 --The seed is Raw peanuts, the crop is unshelled raw peanuts, they can be cooked via ffoods to create roasted peanuts and roasted unshelled peanuts which craft into roasted peanuts
-farming.register_plant("overproduced:peanuts", {
+overproduced.register_plant("overproduced:peanuts", {
 	description = ("Raw Peanuts"),
 	harvest_description = ("Unshelled Raw Peanuts"),
 	paramtype2 = "meshoptions",
@@ -70,7 +70,7 @@ minetest.register_craftitem("overproduced:peanut_shells", {
 })
 
 --Garlic
-farming.register_plant("overproduced:garlic", {
+overproduced.register_plant("overproduced:garlic", {
 	description = ("Garlic Cloves"),
 	harvest_description = ("Garlic"),
 	paramtype2 = "meshoptions",
@@ -81,10 +81,55 @@ farming.register_plant("overproduced:garlic", {
 	fertility = {"grassland"},
 	groups = {flammable = 1},
 	place_param2 = 1,
+	seeddrop = false,
 })
 
 minetest.register_craft({
 	type = "shapeless",
 	output = "overproduced:seed_garlic 2",
 	recipe = {"overproduced:garlic"},
+})
+
+--Honeydew
+overproduced.register_melon("overproduced:honeydew", {
+	description = "Honeydew seeds",
+	harvest_description = "Honeydew",
+	paramtype2 = "meshoptions",
+	inventory_image = "overproduced_honeydew.png",
+	steps = 2,
+	minlight = 5,
+	maxlight = default.MAX_LIGHT,
+	fertility = {"grassland"},
+	groups =  {flammable = 1},
+	place_param2 = 1,
+	melon_tiles = {"overproduced_honeydew.png"},
+})
+
+--Rainbow Carrots
+overproduced.register_plant("overproduced:rainbow_carrots", {
+	description = "Rainbow Carrot Seeds",
+	harvest_description = "Rainbow Carrots",
+	paramtype2 = "meshoptions",
+	inventory_image = "overproduced_rainbow_carrots.png",
+	steps = 3,
+	minlight = 6,
+	maxlight = default.MAX_LIGHT,
+	fertility = {"grassland"},
+	groups = {},
+	place_param2 = 1,
+})
+
+--Habanero
+overproduced.register_plant("overproduced:habanero", {
+	description = "Habanero Seeds",
+	harvest_description = "Habanero",
+	paramtype2 = "meshoptions",
+	inventory_image = "overproduced_habanero.png",
+	steps = 4,
+	minlight = 6,
+	maxlight = default.MAX_LIGHT,
+	fertility = {"grassland"},
+	groups = {},
+	place_param2 = 1,
+	seedrop = false,
 })
