@@ -11,7 +11,7 @@ overproduced.register_plant = function(name, def)
 	-- Check def table
 	--Sets default values if nothing is specified for options in the table
 	if not def.description then
-		def.description = S("Seed")
+		def.description = "Seed"
 	end
 	if not def.harvest_description then
 		def.harvest_description = pname:gsub("^%l", string.upper)
@@ -94,12 +94,13 @@ overproduced.register_plant = function(name, def)
 	})
 
 	-- Register harvest
-	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
-		description = def.harvest_description,
-		inventory_image = mname .. "_" .. pname .. ".png",
-		groups = def.groups or {flammable = 2},
-	})
-
+	if def.seeddrop == "seed_only" then
+		minetest.register_craftitem(":" .. mname .. ":" .. pname, {
+			description = def.harvest_description,
+			inventory_image = mname .. "_" .. pname .. ".png",
+			groups = def.groups or {flammable = 2},
+		})
+	end
 	-- Register growing steps
 	for i = 1, def.steps do
 		local base_rarity = 1
@@ -107,8 +108,16 @@ overproduced.register_plant = function(name, def)
 			base_rarity =  8 - (i - 1) * 7 / (def.steps - 1)
 		end
 		local drop = {}
+
 		--If seeddrop is true then the conventional drop table is used
-		if def.seeddrop ~= false then
+		if def.seeddrop == "seed_only" then
+			drop = {
+				items = {
+					{items = {mname .. ":seed_" .. pname}, rarity = base_rarity},
+					{items = {mname .. ":seed_" .. pname}, rarity = base_rarity * 2},
+				}
+			}
+		elseif def.seeddrop ~= false then
 			drop = {
 				items = {
 					{items = {mname .. ":" .. pname}, rarity = base_rarity},
@@ -135,7 +144,6 @@ overproduced.register_plant = function(name, def)
 			next_plant = mname .. ":" .. pname .. "_" .. (i + 1)
 			lbm_nodes[#lbm_nodes + 1] = mname .. ":" .. pname .. "_" .. i
 		end
-
 		minetest.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			waving = 1,
@@ -175,3 +183,4 @@ overproduced.register_plant = function(name, def)
 	}
 	return r
 end
+

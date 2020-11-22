@@ -131,5 +131,19 @@ overproduced.register_plant("overproduced:habanero", {
 	fertility = {"grassland"},
 	groups = {},
 	place_param2 = 1,
-	seedrop = false,
+	seeddrop = false,
+})
+
+overproduced.register_plant("overproduced:potato", {
+	description = "Potato",
+	harvest_description = "Potato_1",
+	paramtype2 = "meshoptions",
+	inventory_image = "overproduced_potato.png",
+	steps = 4,
+	minlight = 4,
+	maxlight = default.MAX_LIGHT,
+	fertility = {"grassland"},
+	groups = {},
+	place_param2 = 4,
+	seeddrop = "seed_only",
 })

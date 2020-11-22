@@ -26,23 +26,23 @@ overproduced.register_bush = function(name, def)
 	
 	--Registers bush with the crop on it	
 	minetest.register_node(mname .. ":" .. def.bush_with_fruit, {
-		description = (def.bush_with_fruit_desc),
+		description = def.bush_with_fruit_desc,
 		drawtype = "allfaces_optional",
 		tiles = {def.bush_texture^def.overlay_texture},
 		paramtype = "light",
 		groups = {snappy = 3, flammable = 2, leaves = 1, dig_immediate = 3},
 		drop = def.drop,
 		sounds = default.node_sound_leaves_defaults(),
-		node_dig_prediction = "default:blueberry_bush_leaves",
+		node_dig_prediction = mname .. ":" .. def.bush_without_fruit,
 
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
-			minetest.set_node(pos, {name = "default:blueberry_bush_leaves"})
+			minetest.set_node(pos, {name = mname .. ":" .. def.bush_without_fruit})
 			minetest.get_node_timer(pos):start(math.random(300, 1500))
 		end,
 	})
 
 	minetest.register_node(mname .. ":" .. def.bush_without_fruit, {
-		description = ("Blueberry Bush Leaves"),
+		description = string.upper(string.sub(pname, 1, 1)) .. string.sub(pname, -(string.len(pname) - 1)) .. " Bush Leaves",
 		drawtype = "allfaces_optional",
 		tiles = {"default_blueberry_bush_leaves.png"},
 		paramtype = "light",
