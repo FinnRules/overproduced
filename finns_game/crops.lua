@@ -1,21 +1,21 @@
 --Red Onion
 overproduced.register_plant("overproduced:red_onion", {
-	description = ("Red Onion Seed"),
-	harvest_description = ("Red Onion"),
+	description = "Red Onion Seed",
+	harvest_description = "Red Onion",
 	paramtype2 = "meshoptions",
 	inventory_image = "overproduced_red_onion_seeds.png",
 	steps = 12,
 	minlight = 10,
 	maxlight = minetest.LIGHT_MAX,
-	fertility = {"grassland"},
+	fertility = {"maple_forest"},
 	groups = {flammable = 1},
 	place_param2 = 1,
 })
-
+--
 --Yellow Onion
 overproduced.register_plant("overproduced:yellow_onion", {
-	description = ("Yellow Onion Seed"),
-	harvest_description = ("Yellow Onion"),
+	description = "Yellow Onion Seed",
+	harvest_description = "Yellow Onion",
 	paramtype2 = "meshoptions",
 	inventory_image = "overproduced_yellow_onion_seeds.png",
 	steps = 12,
@@ -28,8 +28,8 @@ overproduced.register_plant("overproduced:yellow_onion", {
 
 --White Onion
 overproduced.register_plant("overproduced:white_onion", {
-	description = ("White Onion Seed"),
-	harvest_description = ("White Onion"),
+	description = "White Onion Seed",
+	harvest_description = "White Onion",
 	paramtype2 = "meshoptions",
 	inventory_image = "overproduced_white_onion_seeds.png",
 	steps = 12,

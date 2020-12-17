@@ -22,6 +22,8 @@ end
 --OP assumes if you have fmain you have ffarming
 if (minetest.get_modpath("fmain")) ~= nil then
 	minetest.log("[overproduced]: fmain loaded")
-	overproduced.sound_plant = ""
-	overproduced.sound_seed = ""
+--	overproduced.sound_plant = ""
+--	overproduced.sound_seed = ""
+
+	dofile(overproduced.path .. "/finns_game/crops.lua")
 end

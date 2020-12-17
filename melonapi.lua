@@ -81,7 +81,7 @@ overproduced.register_melon = function(name, def)
 			return overproduced.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
 		end,
 		next_plant = mname .. ":" .. pname .. "_1",
-		on_timer = farming.grow_plant,
+		on_timer = overproduced.grow_plant,
 		minlight = def.minlight,
 		maxlight = def.maxlight,
 	})
