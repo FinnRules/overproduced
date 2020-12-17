@@ -65,11 +65,7 @@ overproduced.register_melon = function(name, def)
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 		fertility = def.fertility,
-		sounds = default.node_sound_dirt_defaults({
-			dig = {name = "", gain = 0},
-			dug = {name = "default_grass_footstep", gain = 0.2},
-			place = {name = "default_place_node", gain = 0.25},
-		}),
+		sounds = overproduced.sound_seed,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			local under = pointed_thing.under
@@ -82,7 +78,7 @@ overproduced.register_melon = function(name, def)
 					pointed_thing) or itemstack
 			end
 
-			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+			return overproduced.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
 		end,
 		next_plant = mname .. ":" .. pname .. "_1",
 		on_timer = farming.grow_plant,
@@ -129,9 +125,9 @@ overproduced.register_melon = function(name, def)
 				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 			},
 			groups = nodegroups,
-			sounds = default.node_sound_leaves_defaults(),
+			sounds = overproduced.sound_plant,
 			next_plant = next_plant,
-			on_timer = farming.grow_plant,
+			on_timer = overproduced.grow_plant,
 			minlight = def.minlight,
 			maxlight = def.maxlight,
 		})
