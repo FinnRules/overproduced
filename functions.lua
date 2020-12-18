@@ -114,7 +114,7 @@ overproduced.grow_plant = function(pos, elapsed)
 
 	-- new timer needed?
 	if minetest.registered_nodes[def.next_plant].next_plant then
-		oveproduced.tick(pos)
+		overproduced.tick(pos)
 	end
 	return
 end
