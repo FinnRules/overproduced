@@ -5,6 +5,7 @@ dofile(overproduced.path .. "/functions.lua")
 dofile(overproduced.path .. "/cropapi.lua")
 dofile(overproduced.path .. "/melonapi.lua")
 --dofile(overproduced.path .. "/mushroomapi.lua")
+--dofile(overproduced.path .. "/mapi.lua")
 
 if (minetest.get_modpath("default") and minetest.get_modpath("farming")) ~= nil then
 	minetest.log("[overproduced]: default loaded")

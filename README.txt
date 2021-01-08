@@ -13,11 +13,23 @@ Goals:
 
 
 Legal (temporary):
-GPLv3, code by FinnRules, including portions by the Minetest_Game authors, specifically default and farming
+GPLv3, code by Emetchi, including portions by the Minetest_Game authors, specifically default and farming
 
 Textures by:
-FinnRules (all not mentioned) CC-BY-SA 3.0
+Emetchi CC-BY-SA 3.0
+(all not mentioned)
+
 
 RobinFox CC-BY-SA 3.0
 overproduced_yellow_onion.png
 overproduced_yellow_onion_seeds.png
+
+C0nfluxx CC-BY-SA 3.0
+overproduced_cabbage_1-6.png
+overproduced_cabbage.png
+overproduced_cabbage_seeds.png
+
+milcerine CC-BY-SA 3.0
+
+milcerine from RobinFox CC-BY-SA 3.0
+overproduced_white_onion.png

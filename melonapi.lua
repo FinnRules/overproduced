@@ -26,7 +26,7 @@ overproduced.register_melon = function(name, def)
 		def.minlight = 1
 	end
 	if not def.maxlight then
-		def.maxlight = 14 -- change this to default.MAX_LIGHT
+		def.maxlight = minetest.LIGHT_MAX -- change this to default.MAX_LIGHT
 	end
 	if not def.fertility then
 		def.fertility = {} --defaults to no fertility
@@ -150,13 +150,10 @@ overproduced.register_melon = function(name, def)
 
 			--table of vectors to be checked
 			local near = {{x = pos.x - 1, y = pos.y, z = pos.z}, {x = pos.x + 1, y = pos.y, z = pos.z}, {x = pos.x, y = pos.y, z = pos.z - 1}, {x = pos.x, y = pos.y, z = pos.z + 1}}
-			print("\nI'm a melon at (" .. pos.x .. ", " .. pos.z .. ")")--debug
 			
 			local function checkNear()
 				for k, v in pairs(near) do
-					print("Nearby " .. minetest.get_node(near[k]).name)
 					if minetest.get_node(near[k]).name == mname .. ":" .. pname then
-						print("Melon detected")
 						return false
 					end
 				
@@ -165,15 +162,11 @@ overproduced.register_melon = function(name, def)
 			end			
 			if checkNear() then
 				local place = math.random(1,4)
-				print("place = " .. place)
 				if minetest.get_node(near[place]).name ~= "air" then
-					print("Obstruction Detected")
 				
 				elseif minetest.registered_nodes[minetest.get_node({x = near[place].x, y = near[place].y - 1, z = near[place].z}).name].drawtype ~= "normal" then
-					print("No solid ground to place on")
 
 				else
-					print("Placing melon")
 					minetest.set_node(near[place], {name = mname .. ":" .. pname})
 					
 				end
