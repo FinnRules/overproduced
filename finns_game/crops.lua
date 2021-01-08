@@ -20,7 +20,7 @@ overproduced.register_plant("overproduced:yellow_onion", {
 	harvest_description = "Yellow Onion",
 	paramtype2 = "meshoptions",
 	inventory_image = "overproduced_yellow_onion_seeds.png",
-	steps = 12,
+	steps = 5,
 	minlight = 10,
 	maxlight = minetest.LIGHT_MAX,
 	fertility = allbiomes,
@@ -141,7 +141,7 @@ overproduced.register_plant("overproduced:habanero", {
 	description = "Habanero Seeds",
 	harvest_description = "Habanero",
 	paramtype2 = "meshoptions",
-	inventory_image = "overproduced_habanero.png",
+	inventory_image = "overproduced_habanero_seeds.png",
 	steps = 5,
 	minlight = 6,
 	maxlight = minetest.LIGHT_MAX,
@@ -204,4 +204,46 @@ overproduced.register_plant("overproduced:eggplant", {
 	fertility = allbiomes,
 	groups = {flammable = 1},
 	place_param2 = 1,
+})
+
+overproduced.register_plant("overproduced:cotton", {
+	description = "Cotton Seeds",
+	harvest_description = "Cotton",
+	paramtype2 = "meshoptions",
+	inventory_image = "overproduced_cotton_seed.png",
+	steps = 8,
+	minlight = 10,
+	maxlight = minetest.LIGHT_MAX,
+	fertility = allbiomes,
+	groups = {flammable = 1},
+	place_param2 = 1,
+})
+
+minetest.register_craft({
+	output = "fmain:wool",
+	recipe = {
+			{"overproduced:cotton", "overproduced:cotton"},
+			{"overproduced:cotton", "overproduced:cotton"},
+	}
+})
+
+--For prealpha
+minetest.register_node("overproduced:cotton_wild", {
+	description = "Wild Cotton",
+	drawtype = "plantlike",
+	waving = 1,
+	tiles = {"overproduced_cotton_wild.png"},
+	inventory_image = "overproduced_cotton_wild.png",
+	wield_image = "overproduced_cotton_wild.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	buildable_to = true,
+	groups = {snappy = 3, attached_node = 1, flammable = 4},
+	drop = "overproduced:seed_cotton",
+--	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-6 / 16, -8 / 16, -6 / 16, 6 / 16, 5 / 16, 6 / 16},
+	},
 })
